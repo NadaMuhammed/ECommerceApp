@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="my_app_primary_inverse">#4A312A</color>
+    <color name="my_app_primary_container">#F8E1DC</color>
+    <color name="my_app_on_primary_container">#3B1F1B</color>
+    <color name="my_app_secondary_container">#E7E0EC</color>
+    <color name="my_app_on_secondary_container">#332D41</color>
+    <color name="my_app_tertiary">#D8A7A3</color>
+    <color name="material_dynamic_tertiary0">#3B1F1B</color>
+    <color name="my_app_tertiary_container">#FFEDEB</color>
+    <color name="my_app_on_tertiary_container">#4A312A</color>
+    <color name="my_app_surface_variant">#F5DDD6</color>
+    <color name="my_app_on_surface_variant">#53433F</color>
+    <color name="my_app_inverse_surface">#3B1F1B</color>
+    <color name="my_app_inverse_on_surface">#F8E1DC</color>
+    <color name="my_app_outline">#8C746C</color>
+</resources>
