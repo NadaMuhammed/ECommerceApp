@@ -23,3 +23,4 @@ rootProject.name = "E-Commerce App"
 include(":app")
 include(":core:ui")
 include(":core:network")
+include(":core:base")

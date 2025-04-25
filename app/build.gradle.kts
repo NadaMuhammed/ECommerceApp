@@ -67,9 +67,17 @@ dependencies {
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
 
+    // lottie
+    implementation(libs.lottie)
+
+    implementation(libs.androidx.core.splashscreen)
+
     // ui
     implementation(project(":core:ui"))
 
     // network
     implementation(project(":core:network"))
+
+    // base
+    implementation(project(":core:base"))
 }
