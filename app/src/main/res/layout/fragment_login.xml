@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/my_app_primary_container"
-    tools:context=".auth.login.LoginFragment">
+    tools:context=".auth.login.presentation.LoginFragment">
 
     <ImageView
         android:id="@+id/imgIcon"
@@ -37,10 +37,11 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilPassword"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@id/tilUsername"
+        app:layout_constraintStart_toStartOf="@id/tilUsername"
         app:layout_constraintTop_toBottomOf="@id/tilUsername"
         app:startIconDrawable="@drawable/ic_username">
 
@@ -52,15 +53,30 @@
             android:paddingStart="50dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.airbnb.lottie.LottieAnimationView
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnBiometric"
+        style="?attr/materialIconButtonFilledStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="@color/my_app_on_surface_variant"
+        app:cornerRadius="10dp"
+        app:icon="@drawable/ic_biometric"
+        app:iconSize="30dp"
+        app:layout_constraintEnd_toEndOf="@id/tilPassword"
+        app:layout_constraintTop_toBottomOf="@id/tilPassword" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLogin"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent=".15"
+        android:layout_marginEnd="5dp"
+        android:backgroundTint="@color/my_app_outline"
+        android:text="@string/login"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/btnBiometric"
+        app:layout_constraintEnd_toStartOf="@id/btnBiometric"
+        app:layout_constraintStart_toStartOf="@id/tilPassword"
         app:layout_constraintTop_toBottomOf="@id/tilPassword"
-        app:layout_constraintWidth_percent=".15"
-        app:lottie_autoPlay="true"
-        app:lottie_rawRes="@raw/ic_biometric" />
-
+        app:layout_constraintTop_toTopOf="@id/btnBiometric" />
 </androidx.constraintlayout.widget.ConstraintLayout>

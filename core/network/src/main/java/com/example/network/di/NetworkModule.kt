@@ -11,6 +11,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import javax.inject.Named
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
@@ -19,12 +20,25 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit(
+    @Named("app")
+    fun provideAppRetrofit(
         client: OkHttpClient,
         converterFactory: MoshiConverterFactory
     ): Retrofit = Retrofit.Builder()
         .client(client)
         .baseUrl(BuildConfig.API_BASE_URL)
+        .addConverterFactory(converterFactory)
+        .build()
+
+    @Singleton
+    @Provides
+    @Named("auth")
+    fun provideAuthRetrofit(
+        client: OkHttpClient,
+        converterFactory: MoshiConverterFactory
+    ): Retrofit = Retrofit.Builder()
+        .client(client)
+        .baseUrl(BuildConfig.AUTH_BASE_URL)
         .addConverterFactory(converterFactory)
         .build()
 

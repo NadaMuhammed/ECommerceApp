@@ -1,4 +1,4 @@
-package com.example.e_commerceapp.splash
+package com.example.e_commerceapp.splash.presentation
 
 import android.content.Intent
 import android.os.Handler

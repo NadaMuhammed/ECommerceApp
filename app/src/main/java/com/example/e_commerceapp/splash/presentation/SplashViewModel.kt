@@ -1,4 +1,4 @@
-package com.example.e_commerceapp.splash
+package com.example.e_commerceapp.splash.presentation
 
 import com.example.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
