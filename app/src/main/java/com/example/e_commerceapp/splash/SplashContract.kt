@@ -13,7 +13,9 @@ sealed class SplashContract {
 
         data object NavigateToLogin: SideEffect()
 
-        data object ShowCustomSplash: SideEffect()
+        data class ShowCustomSplash(
+            val splashTime: Long
+        ): SideEffect()
     }
 
     sealed class Event: BaseContract.Event {

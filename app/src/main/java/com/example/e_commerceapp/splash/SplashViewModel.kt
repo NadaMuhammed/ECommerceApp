@@ -30,7 +30,9 @@ class SplashViewModel @Inject constructor() : BaseViewModel<
 
     private fun showCustomSplash() {
         setSideEffect(
-            SplashContract.SideEffect.ShowCustomSplash
+            SplashContract.SideEffect.ShowCustomSplash(
+                state.value.loadingTime
+            )
         )
     }
 

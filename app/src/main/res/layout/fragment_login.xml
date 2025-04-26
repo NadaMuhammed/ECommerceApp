@@ -55,13 +55,12 @@
     <com.airbnb.lottie.LottieAnimationView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:lottie_autoPlay="true"
-        app:lottie_rawRes="@raw/ic_biometric"
-        app:layout_constraintTop_toBottomOf="@id/tilPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintWidth_percent=".25"
-        app:layout_constraintHeight_percent=".15"
         android:layout_margin="20dp"
-        app:lottie_speed="0.5"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".15"
+        app:layout_constraintTop_toBottomOf="@id/tilPassword"
+        app:layout_constraintWidth_percent=".15"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/ic_biometric" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

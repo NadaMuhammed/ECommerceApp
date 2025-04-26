@@ -1,6 +1,6 @@
 package com.example.base
 
-sealed interface BaseContract{
+sealed interface BaseContract {
     interface State
 
     interface SideEffect

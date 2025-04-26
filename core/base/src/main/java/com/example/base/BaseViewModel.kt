@@ -21,7 +21,7 @@ abstract class BaseViewModel<
     private val _state = MutableStateFlow(initialState)
     val state: StateFlow<STATE> = _state.asStateFlow()
 
-    private val _sideEffect = MutableSharedFlow<SIDE_EFFECT>()
+    private val _sideEffect = MutableSharedFlow<SIDE_EFFECT>(replay = 1)
     val sideEffect: SharedFlow<SIDE_EFFECT> = _sideEffect.asSharedFlow()
 
     fun updateState(newState: (STATE) -> STATE) {
@@ -47,7 +47,7 @@ abstract class BaseViewModel<
         viewModelScope.launch(Dispatchers.IO) {
             onLoading?.invoke(true)
 
-            when(val result = useCase.invoke()) {
+            when (val result = useCase.invoke()) {
                 is BaseResult.BaseSuccess -> {
                     onSuccess.invoke(result.data)
 

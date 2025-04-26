@@ -16,8 +16,13 @@ abstract class BaseActivity<VB : ViewBinding>(
         super.onCreate(savedInstanceState)
 
         _binding = bindingInflater(layoutInflater)
+        setContentView(binding.root)
 
         binding.initializeUI()
+    }
+
+    override fun onResume() {
+        super.onResume()
 
         handleState()
 
