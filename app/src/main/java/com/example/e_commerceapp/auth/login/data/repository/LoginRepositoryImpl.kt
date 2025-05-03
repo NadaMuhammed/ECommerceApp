@@ -14,7 +14,7 @@ class LoginRepositoryImpl @Inject constructor(
     private val loginResponseMapper: LoginResponseMapper
 ): LoginRepository {
 
-    override fun login(loginInput: LoginInput): LoginEntity? {
+    override suspend fun login(loginInput: LoginInput): LoginEntity? {
         return loginResponseMapper.map(
             loginService.login(
                 loginRequestMapper.map(loginInput)

@@ -24,6 +24,12 @@ android {
 
         buildConfigField(
             "String",
+            "AUTH_API_KEY",
+            "\"${project.findProperty("AUTH_API_KEY")}\""
+        )
+
+        buildConfigField(
+            "String",
             "AUTH_BASE_URL",
             "\"${project.findProperty("AUTH_BASE_URL")}\""
         )

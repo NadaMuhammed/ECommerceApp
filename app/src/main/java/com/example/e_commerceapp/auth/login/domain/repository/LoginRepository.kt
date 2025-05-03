@@ -5,7 +5,7 @@ import com.example.e_commerceapp.auth.login.domain.model.input.LoginInput
 
 fun interface LoginRepository {
 
-    fun login(
+    suspend fun login(
         loginInput: LoginInput
     ): LoginEntity?
 }

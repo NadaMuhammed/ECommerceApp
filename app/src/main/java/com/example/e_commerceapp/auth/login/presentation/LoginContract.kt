@@ -13,7 +13,9 @@ sealed class LoginContract {
 
     sealed class SideEffect : BaseContract.SideEffect {
 
-        data object ShowEmailError: SideEffect()
+        data object ShowEmailError : SideEffect()
+
+        data object ShowPasswordError : SideEffect()
     }
 
     sealed class Event : BaseContract.Event {
@@ -27,5 +29,7 @@ sealed class LoginContract {
         ) : Event()
 
         data object ShowEmailError : Event()
+
+        data object ShowPasswordError : Event()
     }
 }

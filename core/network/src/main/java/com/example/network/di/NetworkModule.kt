@@ -1,6 +1,7 @@
 package com.example.network.di
 
 import com.example.network.BuildConfig
+import com.example.network.interceptors.LoginInterceptor
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -34,7 +35,7 @@ object NetworkModule {
     @Provides
     @Named("auth")
     fun provideAuthRetrofit(
-        client: OkHttpClient,
+        @Named("auth-client") client: OkHttpClient,
         converterFactory: MoshiConverterFactory
     ): Retrofit = Retrofit.Builder()
         .client(client)
@@ -44,6 +45,18 @@ object NetworkModule {
 
     @Singleton
     @Provides
+    @Named("auth-client")
+    fun provideAuthClient(
+        loggingInterceptor: HttpLoggingInterceptor,
+        loginInterceptor: LoginInterceptor
+    ): OkHttpClient = OkHttpClient.Builder()
+        .addInterceptor(loggingInterceptor)
+        .addInterceptor(loginInterceptor)
+        .build()
+
+    @Singleton
+    @Provides
+    @Named("app-client")
     fun provideClient(
         loggingInterceptor: HttpLoggingInterceptor
     ): OkHttpClient = OkHttpClient.Builder()
@@ -54,6 +67,10 @@ object NetworkModule {
     @Provides
     fun provideLoggingInterceptor(): HttpLoggingInterceptor =
         HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+
+    @Singleton
+    @Provides
+    fun provideLoginInterceptor(): LoginInterceptor = LoginInterceptor()
 
     @Singleton
     @Provides

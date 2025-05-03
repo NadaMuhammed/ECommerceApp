@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">E-Commerce App</string>
     <string name="username_hint">Username</string>
+    <string name="username_error">Please Enter A Valid Email!</string>
     <string name="password_hint">Password</string>
+    <string name="password_error">Please Enter A Valid Password!</string>
     <string name="login">Login</string>
 </resources>
