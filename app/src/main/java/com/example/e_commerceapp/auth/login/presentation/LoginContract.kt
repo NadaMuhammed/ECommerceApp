@@ -5,8 +5,8 @@ import com.example.base.BaseContract
 sealed class LoginContract {
 
     data class State(
-        val isEmailError: Boolean = false,
-        val isPasswordError: Boolean = false,
+        val isEmailError: Boolean? = null,
+        val isPasswordError: Boolean? = null,
         val email: String? = null,
         val password: String? = null
     ) : BaseContract.State
@@ -16,6 +16,12 @@ sealed class LoginContract {
         data object ShowEmailError : SideEffect()
 
         data object ShowPasswordError : SideEffect()
+
+        data object LoginBiometric : SideEffect()
+
+        data object NavigateToSettings : SideEffect()
+
+        data object NavigateToHome : SideEffect()
     }
 
     sealed class Event : BaseContract.Event {
@@ -31,5 +37,13 @@ sealed class LoginContract {
         data object ShowEmailError : Event()
 
         data object ShowPasswordError : Event()
+
+        data object LoginBiometric : Event()
+
+        data object LoginNormally : Event()
+
+        data object SetBiometric : Event()
+
+        data object NavigateToHome : Event()
     }
 }

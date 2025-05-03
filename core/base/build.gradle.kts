@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -38,6 +40,18 @@ android {
 }
 
 dependencies {
+    // lifecycle
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
+    // coroutines
+    implementation(libs.kotlinx.coroutines.android)
+
+    // biometric
+    implementation(libs.androidx.biometric)
+
+    // hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -45,11 +59,4 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
-    // lifecycle
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
-
-
-    // coroutines
-    implementation(libs.kotlinx.coroutines.android)
 }

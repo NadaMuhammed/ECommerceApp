@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
@@ -5,6 +7,17 @@ plugins {
     id("com.google.dagger.hilt.android")
     id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
+
+val secretsFile = rootProject.file("secrets.properties")
+val secretsProps = Properties()
+
+if (secretsFile.exists()) {
+    secretsFile.inputStream().use { secretsProps.load(it) }
+}
+
+val apiBaseUrl = secretsProps.getProperty("API_BASE_URL") ?: ""
+val authBaseUrl = secretsProps.getProperty("AUTH_BASE_URL") ?: ""
+val authApiKey = secretsProps.getProperty("AUTH_API_KEY") ?: ""
 
 android {
     namespace = "com.example.network"
@@ -19,19 +32,19 @@ android {
         buildConfigField(
             "String",
             "API_BASE_URL",
-            "\"${project.findProperty("API_BASE_URL")}\""
+            "\"$apiBaseUrl\""
         )
 
         buildConfigField(
             "String",
             "AUTH_API_KEY",
-            "\"${project.findProperty("AUTH_API_KEY")}\""
+            "\"$authApiKey\""
         )
 
         buildConfigField(
             "String",
             "AUTH_BASE_URL",
-            "\"${project.findProperty("AUTH_BASE_URL")}\""
+            "\"$authBaseUrl\""
         )
     }
 
@@ -59,13 +72,6 @@ android {
 
 dependencies {
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-
     // retrofit
     implementation(libs.retrofit)
     implementation(libs.moshi.kotlin)
@@ -76,4 +82,11 @@ dependencies {
     // hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
+
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 }
