@@ -1,8 +1,8 @@
 package com.example.base
 
-sealed class BaseResult<T> {
+sealed class BaseResult<out T> {
 
-    data class BaseSuccess<T>(
+    data class BaseSuccess<out T>(
         val data: T? = null
     ): BaseResult<T>()
 

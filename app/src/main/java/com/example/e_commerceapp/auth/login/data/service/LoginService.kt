@@ -13,5 +13,5 @@ fun interface LoginService {
     @POST("/api/login")
     suspend fun login(
         @Body loginRequest: LoginRequest
-    ): LoginResponse
+    ): Result<LoginResponse>
 }
