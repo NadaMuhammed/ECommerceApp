@@ -5,5 +5,7 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.ECommerceApp" parent="Base.Theme.ECommerceApp" />
+    <style name="Theme.ECommerceApp" parent="Base.Theme.ECommerceApp">
+        <item name="android:windowSplashScreenBackground">@color/my_app_primary_container</item>
+    </style>
 </resources>
